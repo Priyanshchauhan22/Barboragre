@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Messages</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffefd5;
+            font-family: 'Dancing Script', cursive;
+            overflow: hidden;
+        }
+        #container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+        }
+        .message, .poem, .option {
+            font-size: 1.5em;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: glow 1.5s ease-in-out infinite alternate;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0s ease-in-out;
+            margin-bottom: 20px;
+            word-wrap: break-word;
+        }
+        .poem {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.4em;
+        }
+        .option {
+            cursor: pointer;
+            background-color: #ff69b4;
+            padding: 10px 20px;
+            border-radius: 25px;
+            color: #fff;
+            font-size: 1.2em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0s ease, transform 0s ease;
+            margin: 10px 0;
+            width: 80%;
+            max-width: 300px;
+        }
+        .option:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.05);
+        }
+        @keyframes glow {
+            from {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #ff69b4, 0 0 40px #ff69b4, 0 0 50px #ff69b4, 0 0 60px #ff69b4, 0 0 70px #ff69b4;
+            }
+            to {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px #ff69b4, 0 0 30px #ff69b4, 0 0 40px #ff69b4, 0 0 50px #ff69b4, 0 0 60px #ff69b4, 0 0 70px #ff69b4, 0 0 80px #ff69b4;
+            }
+        }
+        #clickIcon {
+            cursor: pointer;
+            background-color: #ff69b4;
+            padding: 10px 20px;
+            border-radius: 25px;
+            color: #fff;
+            font-size: 1.2em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
+            max-width: 300px;
+            width: 80%;
+            text-align: center;
+        }
+        #clickIcon:hover {
+            background-color: #ff1493;
+            transform: scale(1.1);
+        }
+        #clickIcon:after {
+            content: '❥';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 1.5em;
+            animation: heartbeat 1s infinite;
+            color: #ff69b4;
+        }
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.3);
+            }
+        }
+        .sticker {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        .sticker1 {
+            top: 20px;
+            left: 20px;
+            background-image: url('./data/1.png');
+            animation: float 3s ease-in-out infinite;
+        }
+        .sticker2 {
+            top: 20px;
+            right: 20px;
+            background-image: url('./data/4.png');
+            animation: float 3s ease-in-out infinite;
+        }
+        .sticker3 {
+            bottom: 20px;
+            left: 20px;
+            background-image: url('./data/2.png');
+            animation: float 3s ease-in-out infinite;
+        }
+        .sticker4 {
+            bottom: 20px;
+            right: 20px;
+            background-image: url('./data/3.png');
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        @media (min-width: 600px) {
+            .message, .poem, .option {
+                font-size: 2.0em;
+            }
+            .poem {
+                font-size: 1.85em;
+            }
+            .option {
+                font-size: 1.4em;
+            }
+            #clickIcon {
+                font-size: 1.5em;
+            }
+            .sticker {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+    <script>
+        function showText() {
+            document.getElementById('message1').style.opacity = 1;
+            document.getElementById('message2').style.opacity = 1;
+            document.getElementById('message3').style.opacity = 1;
+            document.getElementById('poem').style.opacity = 1;
+            document.getElementById('option1').style.opacity = 1;
+            document.getElementById('option2').style.opacity = 1;
+            document.getElementById('clickIcon').style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div id="clickIcon" onclick="showText()">Click here Barča</div>
+        <div class="message" id="message1">You’re the melody to my heart’s song.</div>
+        <div class="message" id="message2">Let’s create our own fairy tale, one where happily ever after is just the beginning.</div>
+        <div class="poem" id="poem">🎵 In a world of colors, you’re my favorite shade,<br>
+        Our love story blooms like a secret garden’s serenade.<br>
+        With every heartbeat, a symphony of grace,<br>
+        Will you be my forever, in this timeless space? 🎵</div>
+        <div class="option" id="option1">Forever enchanted (Yes). 🌟💕</div>
+        <div class="option" id="option2">Ethereal silence (No). 🌌✨</div>
+        <div class="message" id="message3">Reply on Instagram I'm waiting...</div>
+    </div>
+    <div class="sticker sticker1"></div>
+    <div class="sticker sticker2"></div>
+    <div class="sticker sticker3"></div>
+    <div class="sticker sticker4"></div>
+</body>
+</html>
